@@ -35,11 +35,11 @@ export default function FluiDashboard() {
   ];
 
   const barData = [
-    { name: "Camiseta", value: 9.2 },
-    { name: "Hoodie", value: 6.4 },
-    { name: "Pantalón", value: 4.8 },
-    { name: "Gorra", value: 3.7 },
-    { name: "Bolso", value: 2.5 },
+    { name: "Ganchos", value: 9.2 },
+    { name: "Macetas", value: 6.4 },
+    { name: "Adornos", value: 4.8 },
+    { name: "xyz", value: 3.7 },
+    { name: "lorem ipsum", value: 2.5 },
   ];
 
   const COLORS = ["#d9468f", "#111111", "#5d8f58", "#d8a431"];
@@ -119,7 +119,7 @@ export default function FluiDashboard() {
             <div className="w-28 h-28 rounded-full bg-black flex items-center justify-center border border-[#243225] shadow-lg">
               <div className="text-5xl font-light tracking-tight">flui</div>
             </div>
-            <div className="text-[#86a581] text-sm mt-3">Moda sostenible</div>
+            <div className="text-[#86a581] text-sm mt-3 text-center">Sembrando consciencia que detona cambio</div>
           </div>
 
           <nav className="space-y-2">
@@ -152,10 +152,10 @@ export default function FluiDashboard() {
         </div>
 
         <div className="bg-[#172018] rounded-3xl p-4 border border-[#263527]">
-          <div className="text-[#a8c39f] text-sm mb-2">
-            Comprometidos con la moda sostenible
+          <div className="text-[#a8c39f] text-sm mb-2 text-center">
+            Fluyendo hacia un marketplace sostenible
           </div>
-          <div className="text-5xl">🌿</div>
+          <div className="text-5xl text-center">🌿</div>
         </div>
       </aside>
 
@@ -185,7 +185,7 @@ export default function FluiDashboard() {
         {view === "dashboard" ? (
           <>
             {/* Metric Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4 mb-6 text-center">
               {metrics.map((metric) => (
                 <div
                   key={metric.title}
@@ -221,7 +221,7 @@ export default function FluiDashboard() {
               <div className="xl:col-span-2 bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h2 className="text-xl font-semibold">Ventas semanales</h2>
+                    <h2 className="text-xl font-semibold text-gray-900">Ventas semanales</h2>
                     <p className="text-gray-500 text-sm">
                       Ajusta los valores para simular el dashboard
                     </p>
@@ -280,7 +280,7 @@ export default function FluiDashboard() {
                     <div key={label}>
                       <div className="flex justify-between text-sm mb-1">
                         <span>{label}</span>
-                        <span>{value}%</span>
+                        <span>{value}</span>
                       </div>
                       <input
                         type="range"
@@ -310,7 +310,9 @@ export default function FluiDashboard() {
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
-                      <Tooltip />
+                      <Tooltip
+                        formatter={(value) => `${value}%`}
+                      />
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
